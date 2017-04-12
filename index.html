@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8" />
+		<title>I'm QQ - 每一天，乐在沟通</title>
+		<link rel="stylesheet" type="text/css" href="css/qqgw.css"/>
+	</head>
+	<body>
+		<div class="bar">
+			<div class="nav clearFix">
+				<div class="left">
+					<img src="img/imlogo_b.png"/>
+					<ul class="clearFix">
+						<li><a href="#">首页</a></li>
+						<li><a href="#">下载</a></li>
+						<li><a href="#">动态</a></li>
+					</ul>
+				</div>
+				<div class="right">
+					<div class="cz">
+						<a href="#">注册</a>
+					</div>
+					<div class="qq">
+						<ul class="clearFix">
+							<li><a href="#">QQ会员</a></li>
+							<li><a href="#">QQ安全</a></li>
+							<li><a href="#">登录</a></li>
+						</ul>
+						<p><a href="#">当前在线人数：233,193,993</a></p>
+					</div>
+				</div>
+			</div>
+		</div>
+		<div id="scene_1" class="box">
+			<div class="banner">
+				<img class="t1" src="img/banner1.jpg"/>
+			</div>
+			<img class="t2" src="img/brand.png"/>
+		</div>
+		<div id="scene_2" class="box2" data-speed = "0.6">
+			<img src="img/bg1_1600.jpg"/>
+		</div>
+		<div id="scene_3" class="box3">
+			<img class="t3" src="img/pic1.png"/>
+			<div class="wz">
+				<img src="img/qcall_txt.png"/>
+				<div class="pp">
+					<p>无论何时何地，你都能自由享受QQ在各类终端</p>
+					<p>上带来的高清通话，与好友一起想聊多久聊多久</p>
+				</div>
+				<a href="#">了解更多 ></a>
+			</div>
+		</div>
+		<div id="scene_4" class="box4" data-speed = "0.6">
+			<img src="img/avds.jpg"/>
+		</div>
+		<div id="scene_5" class="box5">
+			<img class="t4" src="img/pic2.png"/>
+			<div class="sk">
+				<img src="img/txt.png"/>
+				<div class="pp">
+					<p>通过QQ,电脑和手机上的文件都能收发自如，</p>
+					<p>更有手机在线查阅，轻松你的工作和生活。</p>
+				</div>
+				<a href="#">了解更多 ></a>
+			</div>
+		</div>
+		<div id="scene_6" class="box6" data-speed = "0.6">
+			<img src="img/bg3_1600.jpg"/>
+		</div>
+		<div id="scene_7" class="box7" >
+			<img class="t5" src="img/pic3.png"/>
+			<div class="qc">
+				<img src="img/qblog_txt.png"/>
+				<div class="tp">
+					<p>即使世界很大，你也不会孤单，在兴趣部落</p>
+					<p>有和你一样的人，期待着和你一起发现精彩</p>
+				</div>
+				<a href="#">了解更多 ></a>
+			</div>
+			<img src="img/QQbottom.png"/>
+		</div>
+		
+		<script src="js/jquery-3.1.1.min.js" type="text/javascript" charset="utf-8"></script>
+		<script type="text/javascript">
+			$(function(){
+				var $sceneBack = $('#scene_1'),
+					$sceneCenter = $('#scene_2'),
+					$sceneFront = $('#scene_3'),
+					$sceneA=$('#scene_4'),
+					$sceneB=$('#scene_6'),
+					$sceneC=$('#scene_5');
+					
+				var oldTop1 = 0,oldTop2=450,oldTop3 = 580,oldTop4=962,oldTop5=1062,oldTop6=1500;
+				
+				myScroll();	//初始化
+				$(window).on('scroll',function(){
+					myScroll()
+				});	//监听滚动事件,改变top值
+				
+				//原理: 当前top值 + 滚动距离*不同的系数    实现不同速度的运动
+				function myScroll(){
+					console.log($(window).scrollTop()*$sceneBack.attr('data-speed'))
+					$sceneBack.css({
+						top: oldTop1 + $(window).scrollTop()*$sceneBack.attr('data-speed')
+					})
+					$sceneCenter.css({
+						top: oldTop2 + $(window).scrollTop()*$sceneCenter.attr('data-speed')
+					})
+					$sceneFront.css({
+						top: oldTop3 + $(window).scrollTop()*$sceneFront.attr('data-speed')
+					})
+					$sceneA.css({
+						top: oldTop4 + $(window).scrollTop()*$sceneA.attr('data-speed')
+					})
+					$sceneB.css({
+						top: oldTop6 + $(window).scrollTop()*$sceneB.attr('data-speed')
+					})
+					$sceneC.css({
+						top: oldTop5 + $(window).scrollTop()*$sceneC.attr('data-speed')
+					})
+				}
+			})
+
+		</script>
+	</body>
+</html>
